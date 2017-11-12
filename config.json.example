@@ -1,0 +1,7 @@
+{
+  "tags": ["tr"],
+  "keys": ["PRIVATE_KEY"],
+  "account": "emrebeyler",
+  "mysql_uri": "mysql+pymysql://root:pass@localhost/curobot",
+  "nodes": ["https://rpc.buildteam.io"]
+}
