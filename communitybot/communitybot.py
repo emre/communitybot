@@ -171,8 +171,11 @@ class TransactionListener(object):
             if not main_post.is_main_post():
                 logger.info("Skipping. Not a main post.")
                 return
+            try:
+                self.upvote(main_post)
+            except Exception as e:
+                logger.error(e)
 
-            self.upvote(main_post)
             logger.info("Replied and upvoted user: %s", main_post["author"])
             self.get_table('welcome').insert(dict(
                 author=main_post["author"],
@@ -203,6 +206,7 @@ class TransactionListener(object):
                     continue
                 if "@" + self.account in post["body"]:
                     self.handle_command(post)
+
 
 
 def listen(config):
