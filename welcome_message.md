@@ -14,4 +14,10 @@ birkaç konuyu sizin için derledik.
 * [İçerik hırsızlığı cezası almamak için bilinmesi gerekenler](https://steemit.com/tr/@damla/plagiarism-icerik-hirsizligi-cezasi-almamak-icin-bilinmesi-gerekenler) - [@damla](http://steemit.com/@damla)
 * [Spam yorumlardan dolayı sorun yaşamamak için bilinmesi gerekenler](https://steemit.com/tr/@damla/spam-yorumlardan-dolayi-sorun-yasamamak-icin-bilinmesi-gereken-hususlar) - [@damla](http://steemit.com/@damla)
 
+##### Botlar
+* Minnowsupport ve banjo botlarında kullanmanız üzere size 0.002 SBD yolladım. Bu botları kullanıp yazılarınıza oy almak için
+[Yeni kullanıcılar için @minnowsupport ve @banjo kullanımı](https://steemit.com/tr/@emrebeyler/yeni-kullanicilar-icin-minnowsupport-ve-banjo-kullanimi#@banjo/re-emrebeyler-kullanicilar-icin-minnowsupport-ve-20171113t090859573z)
+yazısını okuyabilirsiniz.
+
+
 Ayrıca, [Steemit Türkiye discord sunucusu](https://discord.gg/XmtWUHW) üzerinden bize anlık olarak ulaşabilir, tr topluluğuna aktif olarak destek verebilir, merak ettiklerinizi sorabilirsiniz.

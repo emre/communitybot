@@ -7,12 +7,12 @@ from datetime import datetime
 import re
 from os import makedirs
 from os.path import expanduser, exists
-from threading import Thread
 
 import dataset
 from steem import Steem
 from steem.post import Post
-from steembase.exceptions import RPCError, PostDoesNotExist
+from steembase.exceptions import PostDoesNotExist
+from steem.commit import Commit
 
 logger = logging.getLogger('communitybot')
 logger.setLevel(logging.INFO)
@@ -64,6 +64,7 @@ class TransactionListener(object):
         self.account = config["account"]
         self.mysql_uri = config["mysql_uri"]
         self.config = config
+        self.commit = Commit(steem)
 
     def get_table(self, table):
         db = dataset.connect(self.mysql_uri)
@@ -178,6 +179,13 @@ class TransactionListener(object):
                 permlink=main_post["permlink"],
                 created_at=str(datetime.now()),
             ))
+            self.commit.transfer(
+                main_post["author"],
+                float(0.002),
+                memo="botlara uyelik icin ufak bir hediye.",
+                asset="SBD",
+                account=self.account
+            )
 
     def check_block(self, block_num):
         operation_data = self.steem.get_ops_in_block(
