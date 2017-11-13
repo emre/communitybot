@@ -16,7 +16,7 @@ birkaç konuyu sizin için derledik.
 
 ##### Botlar
 * Minnowsupport ve banjo botlarında kullanmanız üzere size 0.002 SBD yolladım. Bu botları kullanıp yazılarınıza oy almak için
-[minnowsupport ve banjo kullanımı](https://steemit.com/tr/@emrebeyler/yeni-kullanicilar-icin-minnowsupport-ve-banjo-kullanimi#@banjo/re-emrebeyler-kullanicilar-icin-minnowsupport-ve-20171113t090859573z)
+[minnowsupport ve banjo kullanımı](https://steemit.com/tr/@emrebeyler/yeni-kullanicilar-icin-minnowsupport-ve-banjo-kullanimi)
 yazısını okuyabilirsiniz.
 
 
