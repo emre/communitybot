@@ -1,7 +1,11 @@
 {
-  "tags": ["tr"],
-  "keys": ["PRIVATE_KEY"],
-  "account": "emrebeyler",
+  "keys": ["POSTING_PRIVATE_KEY", "ACTIVE_PRIVATE_KEY"],
+  "account": "turbot",
   "mysql_uri": "mysql+pymysql://root:pass@localhost/curobot",
-  "nodes": ["https://rpc.buildteam.io"]
+  "nodes": ["https://rpc.buildteam.io"],
+  "welcome_message": "/Users/emre/Projects/communitybot/welcome_message.md",
+  "blacklisted_users": [],
+  "send_welcome_gift": "yes",
+  "welcome_gift": 0.002,
+  "welcome_gift_message": "A gift to register bots."
 }

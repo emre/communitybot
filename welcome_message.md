@@ -1,4 +1,4 @@
-Merhaba $username,
+Merhaba @$username,
 
 Steem dünyasına hoşgeldiniz. Yeni bir kullanıcı olarak bilmeniz gereken
 birkaç konuyu sizin için derledik.

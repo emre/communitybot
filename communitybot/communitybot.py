@@ -148,6 +148,7 @@ class TransactionListener(object):
             logger.info(
                 "User on blacklist. (%s). Skipping", post["permlink"])
             return
+
         # welcome command
         if re.findall("@%s\s!(welcome)" % self.account, post["body"]):
 
@@ -182,13 +183,14 @@ class TransactionListener(object):
                 permlink=main_post["permlink"],
                 created_at=str(datetime.now()),
             ))
-            self.commit.transfer(
-                main_post["author"],
-                float(0.002),
-                memo="botlara uyelik icin ufak bir hediye.",
-                asset="SBD",
-                account=self.account
-            )
+            if self.config["send_welcome_gift"] == "yes":
+                self.commit.transfer(
+                    main_post["author"],
+                    self.config["welcome_gift"],
+                    memo=self.config["welcome_gift_message"],
+                    asset="SBD",
+                    account=self.account
+                )
 
     def check_block(self, block_num):
         operation_data = self.steem.get_ops_in_block(
@@ -205,8 +207,10 @@ class TransactionListener(object):
                     # we're only interested in comments.
                     continue
                 if "@" + self.account in post["body"]:
-                    self.handle_command(post)
-
+                    try:
+                        self.handle_command(post)
+                    except Exception as e:
+                        logger.error(e)
 
 
 def listen(config):
