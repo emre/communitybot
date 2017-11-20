@@ -6,7 +6,7 @@ birkaç konuyu sizin için derledik.
 
 ##### Kullanım
 * [Steemit kullanım kılavuzu](https://steemit.com/steemit/@hknyasar/steemit-kullanim-kilavuzu-part-10-steemit-faq-tr-son-part) - [@hknyasar](http://steemit.com/@hknyasar)
-* [Steem'i tanıma rehberi](https://steemit.com/sndbox/@tach/steemit-i-tanima-rehberi-8-neler-yapmamaliyiz) - [@tach](http://steemit.com/@tach)
+* [Steem'i tanıma rehberi](https://steemit.com/tr/@tach/master-toolkit-steemit-tutorials-and-tach-statement) - [@tach](http://steemit.com/@tach)
 
 ##### İçerik üretirken dikkat edilmesi gerekenler
 * [Kopyala, yapıştır ile ilgili](https://steemit.com/tr/@damla/kopya-yapistir-ile-ilgili-bilinmesi-gerekenler-kaynak-belirtmenize-ragmen-hala-spam-yapiyor-olabilirsiniz) - [@damla](http://steemit.com/@damla)
