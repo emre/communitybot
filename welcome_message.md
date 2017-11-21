@@ -15,7 +15,7 @@ birkaç konuyu sizin için derledik.
 * [Spam yorumlardan dolayı sorun yaşamamak için bilinmesi gerekenler](https://steemit.com/tr/@damla/spam-yorumlardan-dolayi-sorun-yasamamak-icin-bilinmesi-gereken-hususlar) - [@damla](http://steemit.com/@damla)
 
 ##### Botlar
-Botlarda kullanmanız üzere size 0.002 SBD yolladım. Bazı botları kullanıp yazılarınıza oy almak için [bu yazıyı](https://steemit.com/tr/@emrebeyler/yeni-kullanicilar-icin-minnowsupport-ve-banjo-kullanimi) okuyabilirsiniz.
+Botlarda kullanmanız üzere size 0.002 SBD yolladım. Bazı botları kullanıp yazılarınıza oy almak için [bu yazıyı](https://steemit.com/tr/@omersurer/botlar-hakkinda-bilgiler-banjo-minnowsupport-ve-digerleri) okuyabilirsiniz.
 
 
 Ayrıca, [Steemit Türkiye discord sunucusu](https://discord.gg/XmtWUHW) üzerinden bize anlık olarak ulaşabilir, tr topluluğuna aktif olarak destek verebilir, merak ettiklerinizi sorabilirsiniz.
