@@ -201,7 +201,8 @@ class TransactionListener(object):
             if operation_type == "comment":
                 try:
                     post = Post(raw_data)
-                except PostDoesNotExist:
+                except Exception as error:
+                    logger.error(error)
                     continue
                 if post.is_main_post():
                     # we're only interested in comments.
