@@ -191,6 +191,32 @@ class TransactionListener(object):
                     asset="SBD",
                     account=self.account
                 )
+        # handle help commands
+        help_commands = [
+            "creating_new_accounts", "bots", "curation_rewards",
+            "downvote", "esteem", "security", "voting_power",
+            "upvote", "tag_spam", "comment_spam", "wallet",
+            "plagiarism", "posting"
+        ]
+        for command in help_commands:
+            if re.findall(
+                    "@%s\s!(%s)" % (self.account, command), post["body"]):
+
+                message_path = "%s%s.md" % (
+                    self.config["help_commands_path"],
+                    command
+                )
+                main_post = Post(post.root_identifier)
+                body = open(message_path).read()
+                body = body.replace("$username", main_post["author"])
+                if not main_post.is_main_post():
+                    logger.info("Skipping. Not a main post.")
+                    return
+                main_post.reply(
+                    body=body,
+                    author=self.account,
+                )
+                logger.info("Posted %s command reply." % command)
 
     def check_block(self, block_num):
         operation_data = self.steem.get_ops_in_block(
