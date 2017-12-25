@@ -129,7 +129,44 @@ class TransactionListener(object):
             logger.info('Sleeping for %s seconds.', block_interval)
             time.sleep(block_interval)
 
-    def upvote(self, post):
+    def daily_message(self):
+        post_list = []
+        query = {"limit": 15, "tag": "tr"}  # limit for 5 posts
+        for p in self.steem.get_discussions_by_hot(query):
+            metadata = json.loads(p["json_metadata"])
+            if metadata and 'utopian-io' in metadata["tags"]:
+                continue
+            if metadata and 'sndbox' in metadata["tags"]:
+                continue
+
+            if p["author"] == "turbot":
+                continue
+
+            link = "https://steemit.com/@%s/%s" % (p["author"], p["permlink"])
+            author_link = "https://steemit.com/%s" % p["author"]
+            post = Post(link)
+            try:
+                self.upvote(post, 20)
+                pass
+            except Exception as error:
+                logger.error(error)
+
+            post_list.append(
+                "- [%s](%s) - [@%s](%s)" % (
+                    p["title"], link, p["author"], author_link)
+            )
+
+        body = open(self.config["daily_message"]).read()
+        body = body.replace("$post_list", "\n".join(post_list))
+
+        self.steem.commit.post(
+            "Son 24 saatte turbot tarafından oylanan yazılar",
+            body,
+            "turbot",
+            tags=["tr",  "turbot"]
+        )
+
+    def upvote(self, post, weight=+5):
 
         full_link = "@%s/%s" % (post["author"], post["permlink"])
         already_upvoted = self.get_table('upvote').find_one(
@@ -139,7 +176,7 @@ class TransactionListener(object):
             logger.info('Already voted. Skipping. %s', full_link)
             return
 
-        resp = post.commit.vote(post.identifier, +80, account=self.account)
+        resp = post.commit.vote(post.identifier, weight, account=self.account)
         if not resp:
             logger.error("Failed upvoting. %s", full_link)
 
@@ -240,19 +277,23 @@ class TransactionListener(object):
                         logger.error(e)
 
 
-def listen(config):
+def listen(config, daily_message):
     logger.info('Starting TX listener...')
     steem = Steem(nodes=config.get("nodes"), keys=config["keys"])
     tx_listener = TransactionListener(steem, config)
+    if daily_message == '1':
+        tx_listener.daily_message()
+        return
     tx_listener.run()
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="Config file in JSON format")
+    parser.add_argument("daily_message", help="Post the daily message")
     args = parser.parse_args()
     config = json.loads(open(args.config).read())
-    return listen(config)
+    return listen(config, args.daily_message)
 
 
 if __name__ == '__main__':
