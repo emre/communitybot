@@ -147,6 +147,7 @@ class TransactionListener(object):
             post = Post(link)
             try:
                 self.upvote(post, 20)
+                time.sleep(4)
                 pass
             except Exception as error:
                 logger.error(error)
