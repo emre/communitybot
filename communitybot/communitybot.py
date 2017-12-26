@@ -3,7 +3,7 @@ import argparse
 import json
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, date
 import re
 from os import makedirs
 from os.path import expanduser, exists
@@ -160,8 +160,9 @@ class TransactionListener(object):
         body = open(self.config["daily_message"]).read()
         body = body.replace("$post_list", "\n".join(post_list))
 
+        today = date.today().strftime("%Y.%m.%d")
         self.steem.commit.post(
-            "Son 24 saatte turbot tarafından oylanan yazılar",
+            "Son 24 saatte turbot tarafından oylanan yazılar (%s)" % today,
             body,
             "turbot",
             tags=["tr",  "turbot"]
