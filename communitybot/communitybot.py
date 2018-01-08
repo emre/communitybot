@@ -144,7 +144,7 @@ class TransactionListener(object):
 
             link = "https://steemit.com/@%s/%s" % (p["author"], p["permlink"])
             author_link = "https://steemit.com/%s" % p["author"]
-            post = Post(link)
+            post = Post(link, steemd_instance=self.steem)
             try:
                 self.upvote(post, 20)
                 time.sleep(4)
@@ -191,7 +191,7 @@ class TransactionListener(object):
         # welcome command
         if re.findall("@%s\s!(welcome)" % self.account, post["body"]):
 
-            main_post = Post(post.root_identifier)
+            main_post = Post(post.root_identifier, steemd_instance=self.steem)
             already_welcomed = self.get_table('welcome').find_one(
                 author=main_post["author"]
             )
@@ -245,7 +245,7 @@ class TransactionListener(object):
                     self.config["help_commands_path"],
                     command
                 )
-                main_post = Post(post.root_identifier)
+                main_post = Post(post.root_identifier, steemd_instance=self.steem)
                 body = open(message_path).read()
                 body = body.replace("$username", main_post["author"])
                 if not main_post.is_main_post():
@@ -265,7 +265,7 @@ class TransactionListener(object):
             operation_type, raw_data = operation["op"][0:2]
             if operation_type == "comment":
                 try:
-                    post = Post(raw_data)
+                    post = Post(raw_data, steemd_instance=self.steem)
                 except Exception as error:
                     logger.error(error)
                     continue
